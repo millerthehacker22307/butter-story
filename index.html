@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Butter Story — Bakery & Cafe, Lucknow</title>
+<meta name="description" content="Butter Story is a pure vegetarian bakery and cafe chain in Lucknow — handcrafted celebration cakes, pastries, macaroons, freshly brewed coffee and custom gifting.">
+<style>
+:root{
+  --cream:#faf5ec;
+  --cream-2:#f3ead9;
+  --brown:#5a3d24;
+  --brown-dark:#3a2615;
+  --gold:#c89b4a;
+  --gold-light:#e8c87e;
+  --text:#4a3a28;
+  --muted:#8a7560;
+  --white:#ffffff;
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--brown)}
+header.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(250,245,236,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid #e7dcc6;
+}
+.nav-inner{
+  max-width:1120px;margin:0 auto;padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.brand{
+  font-size:1.45rem;font-weight:800;letter-spacing:.5px;color:var(--brown-dark);
+  text-decoration:none;
+}
+.brand span{color:var(--gold)}
+.nav-links{display:flex;gap:18px;flex-wrap:wrap;font-size:.95rem}
+.nav-links a{text-decoration:none;color:var(--text);font-weight:600}
+.nav-links a:hover{color:var(--gold)}
+.btn{
+  display:inline-block;padding:12px 26px;border-radius:999px;
+  background:var(--brown);color:#fff;text-decoration:none;font-weight:700;
+  border:none;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(90,61,36,.25)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#a87c2f);color:#fff}
+.btn-outline{background:transparent;color:var(--brown);border:2px solid var(--brown)}
+
+/* HERO */
+.hero{
+  position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;color:#fff;overflow:hidden;
+  background:var(--brown-dark);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:var(--brown-dark) url('https://images.pexels.com/photos/19499002/pexels-photo-19499002/free-photo-of-frokost-maltid-display-skaerm.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500') center/cover no-repeat;
+}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,26,12,.62),rgba(42,26,12,.55));}
+.hero-content{position:relative;z-index:2;max-width:780px;padding:60px 20px}
+.hero-kicker{
+  display:inline-block;font-size:.85rem;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold-light);margin-bottom:14px;font-weight:700;
+}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.15;margin-bottom:16px}
+.hero p.sub{font-size:clamp(1rem,2.4vw,1.25rem);color:#f4e9d6;max-width:620px;margin:0 auto 30px}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-note{margin-top:22px;font-size:.9rem;color:#e8d9bd}
+
+/* SECTIONS */
+section{padding:72px 20px}
+.wrap{max-width:1120px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:44px}
+.sec-head .kicker{color:var(--gold);font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:.8rem}
+.sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--brown-dark);margin:8px 0 10px}
+.sec-head p{color:var(--muted);max-width:640px;margin:0 auto}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.about-img{
+  border-radius:var(--radius);min-height:340px;overflow:hidden;
+  background:var(--cream-2);
+  box-shadow:0 18px 40px rgba(90,61,36,.15);
+}
+.about-img img{width:100%;height:100%;object-fit:cover;min-height:340px}
+.about-text h3{font-size:1.5rem;color:var(--brown-dark);margin-bottom:12px}
+.about-text p{margin-bottom:14px;color:var(--text)}
+.veg-badge{
+  display:inline-block;background:#2e7d32;color:#fff;font-weight:700;font-size:.85rem;
+  padding:6px 14px;border-radius:999px;margin-top:6px;
+}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+
+/* HIGHLIGHTS */
+#highlights{background:var(--cream-2)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.cards{grid-template-columns:1fr}}
+.card{
+  background:#fff;border-radius:var(--radius);overflow:hidden;
+  box-shadow:0 10px 28px rgba(90,61,36,.10);
+  transition:transform .18s ease;
+}
+.card:hover{transform:translateY(-5px)}
+.card-img{height:200px;background:var(--cream-2);overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover}
+.card-body{padding:22px}
+.card-body h3{color:var(--brown-dark);font-size:1.2rem;margin-bottom:8px}
+.card-body p{color:var(--muted);font-size:.96rem}
+
+/* OUTLETS */
+.outlets{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){.outlets{grid-template-columns:1fr}}
+.outlet{
+  background:#fff;border-radius:var(--radius);padding:28px;
+  box-shadow:0 10px 28px rgba(90,61,36,.10);
+  border-top:5px solid var(--gold);
+}
+.outlet h3{color:var(--brown-dark);margin-bottom:8px;font-size:1.25rem}
+.outlet .addr{color:var(--text);font-size:.98rem;margin-bottom:10px}
+.outlet .hours{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.93rem;margin-bottom:14px}
+.outlet .phone{display:block;font-weight:800;color:var(--brown);text-decoration:none;font-size:1.05rem;margin-bottom:14px}
+.outlet .phone:hover{color:var(--gold)}
+.map-link{font-size:.92rem;font-weight:700;color:var(--gold);text-decoration:none}
+.map-link:hover{text-decoration:underline}
+
+/* HOURS */
+#hours{background:var(--brown-dark);color:#f4e9d6}
+#hours .sec-head h2{color:#fff}
+#hours .sec-head p{color:#d8c6a6}
+.hours-table{
+  max-width:640px;margin:0 auto;background:rgba(255,255,255,.06);
+  border:1px solid rgba(232,200,126,.35);border-radius:var(--radius);overflow:hidden;
+}
+.hours-row{display:flex;justify-content:space-between;gap:12px;padding:16px 24px;border-bottom:1px solid rgba(232,200,126,.22)}
+.hours-row:last-child{border-bottom:none}
+.hours-row .area{font-weight:700}
+.hours-row .time{color:var(--gold-light)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr}}
+.contact-info .phone-big{
+  display:block;font-size:1.6rem;font-weight:800;color:var(--brown);
+  text-decoration:none;margin:8px 0 4px;
+}
+.contact-info .phone-big:hover{color:var(--gold)}
+.contact-info p{color:var(--muted);margin-bottom:14px}
+.social-row{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+.social-row a{
+  display:inline-block;padding:10px 20px;border-radius:999px;text-decoration:none;font-weight:700;
+  border:2px solid var(--gold);color:var(--brown);
+}
+.social-row a:hover{background:var(--gold);color:#fff}
+.form-card{
+  background:#fff;border-radius:var(--radius);padding:30px;
+  box-shadow:0 14px 34px rgba(90,61,36,.12);
+}
+.form-card h3{color:var(--brown-dark);margin-bottom:6px}
+.form-card p{color:var(--muted);font-size:.93rem;margin-bottom:18px}
+.form-card label{display:block;font-weight:700;font-size:.9rem;margin:12px 0 6px}
+.form-card input,.form-card select,.form-card textarea{
+  width:100%;padding:12px 14px;border:1.5px solid #e0d3ba;border-radius:10px;
+  font-size:1rem;font-family:inherit;background:var(--cream);
+}
+.form-card input:focus,.form-card select:focus,.form-card textarea:focus{
+  outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,155,74,.18);
+}
+.form-card button{margin-top:18px;width:100%}
+
+/* FOOTER */
+footer{background:var(--brown-dark);color:#d8c6a6;padding:48px 20px 30px;text-align:center}
+footer .brand{color:#fff;text-decoration:none;font-size:1.4rem;font-weight:800}
+footer .brand span{color:var(--gold)}
+footer nav{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:18px 0}
+footer nav a{color:#d8c6a6;text-decoration:none;font-size:.92rem}
+footer nav a:hover{color:var(--gold-light)}
+footer .copy{font-size:.85rem;color:#a8926f;margin-top:14px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">Butter <span>Story</span></a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#highlights">Highlights</a>
+      <a href="#outlets">Outlets</a>
+      <a href="#hours">Hours</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-kicker">Bakery &amp; Cafe &bull; Lucknow</div>
+    <h1>Where Every Bite Tells a Delicious Story</h1>
+    <p class="sub">Handcrafted cakes, flaky pastries and freshly brewed coffee — baked fresh every day at our cafes across Lucknow.</p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#outlets">Find an Outlet</a>
+      <a class="btn btn-outline" style="border-color:#fff;color:#fff" href="tel:+918874474455">Call Us</a>
+    </div>
+    <p class="hero-note">100% pure vegetarian bakery &amp; cafe</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Our Story</div>
+      <h2>About Butter Story</h2>
+      <p>A premium bakery and cafe chain in Lucknow, loved for its handcrafted bakes and warm hospitality.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="https://images.pexels.com/photos/37888519/pexels-photo-37888519/free-photo-of-croissant-almond-panggang-segar-di-atas-nampan.jpeg?auto=compress&w=600"
+             alt="Freshly baked croissants on a tray at Butter Story"
+             onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#e8c87e,#c89b4a)';">
+      </div>
+      <div class="about-text">
+        <h3>Baked fresh. Served with warmth.</h3>
+        <p>Butter Story is a premium bakery and cafe known for its handcrafted cakes and pastries. Every creation is made with fine ingredients and careful craftsmanship, so celebrations, mornings and coffee breaks all taste a little more special.</p>
+        <p>Step into any of our cafes and you will find elegant white interiors with warm golden lighting, a cozy cafe setting and plenty of seating — the perfect place to unwind with friends, family or a quiet cup of coffee.</p>
+        <span class="veg-badge">&#9679; 100% Pure Vegetarian</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="highlights">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Signature Highlights</div>
+      <h2>What We Are Known For</h2>
+      <p>A few of the favourites that keep our guests coming back.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-img">
+          <img src="https://images.pexels.com/photos/1793037/pexels-photo-1793037.jpeg?auto=compress&cs=tinysrgb&w=1600&loading=lazy"
+               alt="Celebration cake"
+               onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#f3ead9,#e8c87e)';">
+        </div>
+        <div class="card-body">
+          <h3>Celebration Cakes</h3>
+          <p>Handcrafted celebration cakes for birthdays, anniversaries and special moments — made to order.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img">
+          <img src="https://images.pexels.com/photos/30410962/pexels-photo-30410962/free-photo-of-colorful-macarons-arranged-in-a-circle.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+               alt="Colourful macaroons"
+               onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#f3ead9,#e8c87e)';">
+        </div>
+        <div class="card-body">
+          <h3>Macaroons</h3>
+          <p>Widely praised as some of the city's best — delicate, colourful and perfectly chewy.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img">
+          <img src="https://images.pexels.com/photos/19498990/pexels-photo-19498990/free-photo-of-pastries-with-fruits.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+               alt="Flaky pastries with fresh fruit"
+               onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#f3ead9,#e8c87e)';">
+        </div>
+        <div class="card-body">
+          <h3>Flaky Pastries</h3>
+          <p>Light, buttery and flaky pastries baked fresh daily — the perfect companion to your coffee.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img">
+          <img src="https://images.pexels.com/photos/32599678/pexels-photo-32599678.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+               alt="Gift selection of macaroons"
+               onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#f3ead9,#e8c87e)';">
+        </div>
+        <div class="card-body">
+          <h3>Custom Gifting</h3>
+          <p>Thoughtfully curated gifting options — elegant boxes and hampers for every occasion.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img">
+          <img src="https://images.pexels.com/photos/5411297/pexels-photo-5411297.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+               alt="Freshly brewed cappuccino"
+               onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#f3ead9,#e8c87e)';">
+        </div>
+        <div class="card-body">
+          <h3>Freshly Brewed Coffee</h3>
+          <p>Rich, aromatic coffee brewed fresh — from classic cappuccinos to indulgent mochas.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img">
+          <img src="https://images.pexels.com/photos/37888519/pexels-photo-37888519/free-photo-of-croissant-almond-panggang-segar-di-atas-nampan.jpeg?auto=compress&w=600"
+               alt="Signature breakfast croissant"
+               onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#f3ead9,#e8c87e)';">
+        </div>
+        <div class="card-body">
+          <h3>Signature Breakfast Specials</h3>
+          <p>Start your day right with our signature breakfast specials, served in a cozy cafe setting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="outlets">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Visit Us</div>
+      <h2>Our Outlets in Lucknow</h2>
+      <p>Three cafes across the city — drop in for a coffee or call ahead for custom orders.</p>
+    </div>
+    <div class="outlets">
+      <div class="outlet">
+        <h3>Chandralok, Kapoorthala</h3>
+        <p class="addr">Sector A, Chandralok, Kapoorthala,<br>Lucknow 226024</p>
+        <p class="hours">&#128336; 11:00 AM &ndash; 9:00 PM, daily</p>
+        <a class="phone" href="tel:+918874474455">+91 88744 74455</a>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Butter+Story+Lucknow+Chandralok" target="_blank" rel="noopener">View on Google Maps &rarr;</a>
+      </div>
+      <div class="outlet">
+        <h3>Indira Nagar</h3>
+        <p class="addr">A-1020, Shalimar Chauraha, A Block,<br>Indira Nagar, Lucknow 226016</p>
+        <p class="hours">&#128336; 8:00 AM &ndash; 11:30 PM, daily</p>
+        <a class="phone" href="tel:+918874474455">+91 88744 74455</a>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Butter+Story+Lucknow+Indira+Nagar" target="_blank" rel="noopener">View on Google Maps &rarr;</a>
+      </div>
+      <div class="outlet">
+        <h3>Gomti Nagar</h3>
+        <p class="addr">AV 7, Vibhuti Khand,<br>Gomti Nagar, Lucknow</p>
+        <p class="hours">&#128336; Open daily</p>
+        <a class="phone" href="tel:+916389305511">+91 63893 05511</a>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Butter+Story+Lucknow+Gomti+Nagar" target="_blank" rel="noopener">View on Google Maps &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hours">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker" style="color:var(--gold-light)">Opening Hours</div>
+      <h2>When We Are Open</h2>
+      <p>All outlets are open every day of the week.</p>
+    </div>
+    <div class="hours-table">
+      <div class="hours-row"><span class="area">Chandralok, Kapoorthala</span><span class="time">11:00 AM &ndash; 9:00 PM daily</span></div>
+      <div class="hours-row"><span class="area">Indira Nagar</span><span class="time">8:00 AM &ndash; 11:30 PM daily</span></div>
+      <div class="hours-row"><span class="area">Gomti Nagar</span><span class="time">Open daily</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Get in Touch</div>
+      <h2>Contact &amp; Enquiries</h2>
+      <p>Custom cake orders, gifting enquiries or just to say hello — we would love to hear from you.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>Call our team for orders and reservations:</p>
+        <a class="phone-big" href="tel:+918874474455">+91 88744 74455</a>
+        <a class="phone-big" style="font-size:1.25rem" href="tel:+916389305511">+91 63893 05511</a>
+        <p style="margin-top:16px">Prefer messaging? Fill in the enquiry form and we will get back to you on WhatsApp.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/butterstorylko" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Butter+Story+Lucknow" target="_blank" rel="noopener">Google Maps</a>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3>WhatsApp Enquiry</h3>
+        <p>Send us your enquiry directly on WhatsApp.</p>
+        <form id="waForm">
+          <label for="fName">Your Name</label>
+          <input type="text" id="fName" name="name" placeholder="Enter your name" required>
+          <label for="fType">Enquiry Type</label>
+          <select id="fType" name="type">
+            <option>Custom Cake Order</option>
+            <option>Bulk / Party Order</option>
+            <option>Gifting Enquiry</option>
+            <option>General Enquiry</option>
+          </select>
+          <label for="fMsg">Message</label>
+          <textarea id="fMsg" name="message" rows="4" placeholder="Tell us about your requirement (flavours, quantity, date...)" required></textarea>
+          <button type="submit" class="btn btn-gold">Send on WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a class="brand" href="#top">Butter <span>Story</span></a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#highlights">Highlights</a>
+    <a href="#outlets">Outlets</a>
+    <a href="#hours">Hours</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.instagram.com/butterstorylko" target="_blank" rel="noopener">Instagram</a>
+  </nav>
+  <p>100% Pure Vegetarian Bakery &amp; Cafe &bull; Lucknow, India</p>
+  <p class="copy">&copy; 2026 Butter Story. All rights reserved.</p>
+</footer>
+
+<script>
+(function(){
+  // Graceful hero background fallback if the image fails to load
+  var test = new Image();
+  test.onerror = function(){
+    document.querySelector('.hero-bg').style.backgroundImage = 'none';
+    document.querySelector('.hero').style.background =
+      'linear-gradient(135deg,#3a2615,#5a3d24 60%,#c89b4a)';
+  };
+  test.src = 'https://images.pexels.com/photos/19499002/pexels-photo-19499002/free-photo-of-frokost-maltid-display-skaerm.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+
+  // WhatsApp enquiry form -> opens wa.me with prefilled message
+  document.getElementById('waForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('fName').value.trim();
+    var type = document.getElementById('fType').value;
+    var msg  = document.getElementById('fMsg').value.trim();
+    var text = 'Hello Butter Story! I am ' + name + '. Enquiry type: ' + type + '. ' + msg;
+    window.open('https://wa.me/918874474455?text=' + encodeURIComponent(text), '_blank');
+  });
+})();
+</script>
+
+</body>
+</html>
